@@ -9,8 +9,10 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import renderPlatforms from "../components/Platforms";
+import userStore from "../store";
 
-export default function GameCard({ game, userToken, gameId }) {
+export default function GameCard({ game, gameId }) {
+  const userToken = userStore((state) => state.userToken);
   const navigation = useNavigation();
 
   const [isFavorite, setIsFavorite] = useState(false);

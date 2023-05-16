@@ -10,7 +10,12 @@ import {
 import Constants from "expo-constants";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-export default function Header({ userToken, setUserToken }) {
+import userStore from "../store";
+
+export default function Header() {
+  const userToken = userStore((state) => state.userToken);
+  const setToken = userStore((state) => state.setToken);
+
   const [isActive, setIsActive] = useState("Games");
 
   const navigation = useNavigation();
@@ -39,7 +44,7 @@ export default function Header({ userToken, setUserToken }) {
             <TouchableOpacity
               style={styles.logSignButton}
               onPress={() => {
-                setUserToken(null);
+                setToken(null);
                 navigation.navigate("GamesStackNavigator", { screen: "Games" });
               }}
             >

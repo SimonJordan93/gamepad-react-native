@@ -16,7 +16,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import ReviewSection from "../../components/ReviewSection";
 import GameCard from "../../components/GameCard";
 
-export default function GenresGameScreen({ route, userToken }) {
+export default function GenresGameScreen({ route }) {
   const [game, setGame] = useState(null);
   const gameId = route.params.id;
 
@@ -57,7 +57,7 @@ export default function GenresGameScreen({ route, userToken }) {
         <Text style={styles.title}>{game.name}</Text>
       </ImageBackground>
       <GameCard gameId={gameId} game={game} />
-      <ReviewSection userToken={userToken} gameId={gameId} />
+      <ReviewSection gameId={gameId} />
     </ScrollView>
   );
 }

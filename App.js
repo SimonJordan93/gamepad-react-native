@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import UserStackNavigator from "./navigation/UserStackNavigator";
 import HomeTabNavigator from "./navigation/HomeTabNavigator";
@@ -9,6 +10,8 @@ import FavoritesTabNavigator from "./navigation/FavoritesTabNavigator";
 import ProfileTabNavigator from "./navigation/ProfileTabNavigator";
 
 import Header from "./components/Header";
+
+const queryClient = new QueryClient();
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

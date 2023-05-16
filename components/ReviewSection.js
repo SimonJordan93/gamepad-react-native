@@ -10,7 +10,11 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { useFocusEffect } from "@react-navigation/native";
 
-export default function ReviewSection({ userToken, gameId }) {
+import userStore from "../store";
+
+export default function ReviewSection({ gameId }) {
+  const userToken = userStore((state) => state.userToken);
+
   const navigation = useNavigation();
   const [reviews, setReviews] = useState([]);
   const [reviewTitle, setReviewTitle] = useState("");

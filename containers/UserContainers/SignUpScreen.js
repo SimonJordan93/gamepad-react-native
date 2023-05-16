@@ -13,7 +13,10 @@ import {
 } from "react-native";
 import axios from "axios";
 
-const SignUpScreen = ({ setToken }) => {
+import userStore from "../../store";
+
+const SignUpScreen = () => {
+  const setToken = userStore((state) => state.setToken);
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
